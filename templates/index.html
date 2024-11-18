@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admission Predictor</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #000000; /* Black background */
+            margin: 0;
+            padding: 0;
+            color: #ffffff; /* White text for contrast */
+            display: flex;
+            flex-direction: column; /* Add this line */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center; /* Center the heading */
+            margin-top: 50px;
+        }
+        form {
+            background: #1a1a1a; /* Dark gray form background */
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            margin-top: 20px; /* Add spacing between h1 and form */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .form-group {
+            width: 48%; /* Two columns */
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #444444;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #333333;
+            color: #ffffff;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 200px;
+            margin: 20px auto 0 auto; /* Center the button */
+            display: block;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        @media (max-width: 600px) {
+            .form-group {
+                width: 100%; /* Stack fields on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Graduate Admission Predictor</h1>
+    <form action="/predict" method="post">
+        <div class="form-group">
+            <label for="GRE">GRE Score:</label>
+            <input type="number" id="GRE" name="GRE" placeholder="Enter your GRE score" required>
+        </div>
+        <div class="form-group">
+            <label for="TOEFL">TOEFL Score:</label>
+            <input type="number" id="TOEFL" name="TOEFL" placeholder="Enter your TOEFL score" required>
+        </div>
+        <div class="form-group">
+            <label for="UniversityRating">University Rating:</label>
+            <input type="number" id="UniversityRating" name="University Rating" placeholder="Rate the university (1-5)" required>
+        </div>
+        <div class="form-group">
+            <label for="SOP">SOP:</label>
+            <input type="number" id="SOP" name="SOP" step="0.1" placeholder="Rate your SOP (1-5)" required>
+        </div>
+        <div class="form-group">
+            <label for="LOR">LOR:</label>
+            <input type="number" id="LOR" name="LOR" step="0.1" placeholder="Rate your LOR (1-5)" required>
+        </div>
+        <div class="form-group">
+            <label for="CGPA">CGPA:</label>
+            <input type="number" id="CGPA" name="CGPA" step="0.01" placeholder="Enter your CGPA" required>
+        </div>
+        <div class="form-group">
+            <label for="Research">Research Experience:</label>
+            <input type="number" id="Research" name="Research" placeholder="1 for Yes, 0 for No" required>
+        </div>
+        <div style="width: 100%; text-align: center;">
+            <button type="submit">Predict</button>
+        </div>
+    </form>
+</body>
+</html>
